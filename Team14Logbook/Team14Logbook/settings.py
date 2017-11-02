@@ -65,10 +65,21 @@ WSGI_APPLICATION = 'Team14Logbook.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'scenariotestDB',
+        'USER': 'test-user123@scenariotestdb',
+        'PASSWORD': 'Password.123',
+        'HOST': 'scenariotestdb.database.windows.net',
+        'PORT': '',
+
+        'OPTIONS': {
+            'driver': 'ODBC Driver 13 for SQL Server',
+        },
+    },
 }
+
+# set this to False if you want to turn off pyodbc's connection pooling
+DATABASE_CONNECTION_POOLING = False
 
 
 # Password validation
