@@ -121,7 +121,8 @@ def logbook_update(request, slug=None):
         "form": form,
     }
     return render(request, "logbook_form.html", context)
-
+    
+@login_required(login_url='/login/')
 def logbook_delete(request, slug=None):
     instance = get_object_or_404(Post, slug=slug)
 
